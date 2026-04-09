@@ -1,0 +1,12 @@
+{
+  "name": "program-page-v2",
+  "version": "1.0.0",
+  "description": "Scaler Growth Program Page v2",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
