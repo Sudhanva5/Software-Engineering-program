@@ -97,17 +97,25 @@
     });
   }
 
-  /* Sub-module expand/collapse */
+  /* Curriculum accordion — ca-row toggle */
+  document.querySelectorAll('.ca-row-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const row = header.closest('.ca-row');
+      if(!row) return;
+      const wasOpen = row.classList.contains('open');
+      // Close all rows in the same panel
+      const panel = row.closest('.c-panel');
+      if(panel) panel.querySelectorAll('.ca-row').forEach(r => r.classList.remove('open'));
+      // Toggle clicked row (if it was closed, open it)
+      if(!wasOpen) row.classList.add('open');
+    });
+  });
+
+  /* Sub-module expand/collapse (legacy) */
   document.querySelectorAll('.c-submod-header').forEach(header => {
     header.addEventListener('click', () => {
       const submod = header.closest('.c-submod');
       if(submod) submod.classList.toggle('open');
-    });
-    header.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        header.click();
-      }
     });
   });
 
